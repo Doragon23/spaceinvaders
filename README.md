@@ -19,18 +19,42 @@ Semaine n°1
 		Aucune
 
 	Diagramme de classes
-		Diagrammes de classes de la semaine 1
+		spaceinvaders/Images/DiagrammeDeClasse_Semaine1.jpg
 
 	Nuage de mots du projet spaceinvaders (séance n°1)
 	(généré à l’aide de Source Code Word Cloud Generator avec la liste JavaBlacklist.txt fournie en annexe)
 
-		Nuage de mots de la semaine 1
+		spaceinvaders/Images/NuageMots_Semaine1.jpg
 
 	Difficultés rencontrées
 		Aucune
 
 	Remarques diverses
 		Pour pouvoir, mettre en place les tests, il a été nécessaire d’ajouter une fonctionnalité supplémentaire qui permet de représenter l’espace de jeu dans une chaîne ASCII.
+
+
+Semaine n°2
+	Fonctionnalités n°2 : Dimensionner le vaisseau
+	Story n°1 : Positionner un nouveau vaisseau avec une dimension donné
+		Un nouveau vaisseau est créé avec des dimensions c'est -à-dire une hauteur et une largeur. Le vaisseau est toujours positionné de la même manière.
+
+	Story n°2 : Faire en sorte qu'il soit impossible de positionner un nouveau vaisseau qui déborde de l'espace de jeu
+		Si le nouveau vaisseau essaye d'être positionner en dehors des limites de l'espace de jeu une exception est levée.
+
+	Story n°3 : Déplacer un vaisseau vers la droite en tenant compte de sa dimension
+		Le vaisseau se déplace d'un pas vers la droite, si le vaisseau se trouve sur la bordure gauche de l'espace de jeu, le vaisseau reste immobile (aucun déplacement, aucune exception levée : le vaisseau reste à sa place)
+
+	Fonctionnalité en cours d'implémentation :
+		Déplacement vers la gauche en tenant compte de sa dimension
+
+	Diagramme de classes
+		spaceinvaders/Images/DiagrammeDeClasse_Semaine2.jpg
+
+	Nuage de mots du projet space invaders
+		spaceinvaders/Images/NuagesMots_Semaine2.jpg
+
+	Difficultés rencontrées
+		Aucune
 
 Glossaire
 Vaisseau : véhicule commandé par le joueur, pouvant se déplacer de droite à gauche et ayant la possibilité de lancer des missiles destinés à détruire le(s) envahisseurs.
