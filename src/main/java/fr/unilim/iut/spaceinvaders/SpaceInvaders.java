@@ -3,7 +3,7 @@ package fr.unilim.iut.spaceinvaders;
 import fr.unilim.iut.spaceinvaders.utils.DebordementEspaceJeuException;
 import fr.unilim.iut.spaceinvaders.utils.HorsEspaceJeuException;
 
-public class SpaceInvaders {
+public class SpaceInvaders{
 	private static final char MARQUE_FIN_LIGNE = '\n';
 	private static final char MARQUE_VIDE = '.';
 	private static final char MARQUE_VAISSEAU = 'V';
@@ -77,6 +77,5 @@ public void positionnerUnNouveauVaisseau(Dimension dimension, Position position)
 		if (vaisseau.abscisseLaPlusAGauche() > 0)
 			vaisseau.seDeplacerVersLaGauche();
 	}
-	
-	
+		
 }
