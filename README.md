@@ -19,12 +19,12 @@ Semaine n°1
 		Aucune
 
 	Diagramme de classes
-		(/Images/DiagrammeDeClasse_Semaine1.jpg)
+		<img src="https://github.com/Doragon23/spaceinvaders/tree/main/Images/DiagrammeDeClasse_Semaine1.jpg" alt="Diagramme semaine 1">
 
 	Nuage de mots du projet spaceinvaders (séance n°1)
 	(généré à l’aide de Source Code Word Cloud Generator avec la liste JavaBlacklist.txt fournie en annexe)
 
-		(/Images/NuageMots_Semaine1.jpg)
+		<img src="https://github.com/Doragon23/spaceinvaders/tree/main/Images/NuageMots_Semaine1.jpg" alt="Nuage de mot">
 
 	Difficultés rencontrées
 		Aucune
@@ -48,10 +48,10 @@ Semaine n°2
 		Déplacement vers la gauche en tenant compte de sa dimension
 
 	Diagramme de classes
-		(/Images/DiagrammeDeClasse_Semaine2.jpg)
+		<img src="https://github.com/Doragon23/spaceinvaders/tree/main/Images/DiagrammeDeClasse_Semaine2.jpg" alt="Diagramme semaine 2">
 
 	Nuage de mots du projet space invaders
-		(/Images/NuagesMots_Semaine2.jpg)
+		<img src="https://github.com/Doragon23/spaceinvaders/tree/main/Images/NuageMots_Semaine2.jpg" alt="Nuage de mot semaine 2">
 
 	Difficultés rencontrées
 		Aucune
