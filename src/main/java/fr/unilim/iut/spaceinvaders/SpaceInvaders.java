@@ -1,12 +1,11 @@
 package fr.unilim.iut.spaceinvaders;
 
+import fr.unilim.iut.spaceinvaders.moteurjeu.Commande;
+import fr.unilim.iut.spaceinvaders.moteurjeu.Jeu;
 import fr.unilim.iut.spaceinvaders.utils.DebordementEspaceJeuException;
 import fr.unilim.iut.spaceinvaders.utils.HorsEspaceJeuException;
 
-public class SpaceInvaders{
-	private static final char MARQUE_FIN_LIGNE = '\n';
-	private static final char MARQUE_VIDE = '.';
-	private static final char MARQUE_VAISSEAU = 'V';
+public class SpaceInvaders implements Jeu{
 	int longueur;
 	int hauteur;
 	Vaisseau vaisseau;
@@ -16,13 +15,17 @@ public class SpaceInvaders{
 		this.hauteur = hauteur;
 	}
 
+	public Vaisseau recupererVaisseau() {
+		return this.vaisseau;
+	}
+	
 	public String recupererEspaceJeuDansChaineASCII() {
 		StringBuilder espaceDeJeu = new StringBuilder();
 		 for (int y = 0; y < hauteur; y++) {
 			 for (int x = 0; x < longueur; x++) {
 				 espaceDeJeu.append(recupererMarqueDeLaPosition(x, y));
 			 }
-			 espaceDeJeu.append(MARQUE_FIN_LIGNE);
+			 espaceDeJeu.append(Constante.MARQUE_FIN_LIGNE);
 		 }
 		 return espaceDeJeu.toString();
 	}
@@ -30,9 +33,9 @@ public class SpaceInvaders{
 	private char recupererMarqueDeLaPosition(int x, int y) {
 		char marque;
 		 if (this.aUnVaisseauQuiOccupeLaPosition(x, y))
-		     marque=MARQUE_VAISSEAU;
+		     marque=Constante.MARQUE_VAISSEAU;
 		 else
-			marque=MARQUE_VIDE;
+			marque=Constante.MARQUE_VIDE;
 		return marque;
 	}
 
@@ -40,7 +43,7 @@ public class SpaceInvaders{
 		return this.aUnVaisseau() && vaisseau.occupeLaPosition(x, y);
 	}
 
-	private boolean aUnVaisseau() {
+	public boolean aUnVaisseau() {
 		return vaisseau!=null;
 	}
 	
@@ -77,5 +80,26 @@ public void positionnerUnNouveauVaisseau(Dimension dimension, Position position)
 		if (vaisseau.abscisseLaPlusAGauche() > 0)
 			vaisseau.seDeplacerVersLaGauche();
 	}
+
+	@Override
+	public void evoluer(Commande commandeUser) {
+		if (commandeUser.gauche) {
+			deplacerVaisseauVersLaGauche();
+		}
 		
+		if (commandeUser.droite) {
+			deplacerVaisseauVersLaDroite();
+		}
+	}
+
+	@Override
+	public boolean etreFini() {
+		return false;
+	}
+		
+	public void initialiserJeu() {
+	    Position positionVaisseau = new Position(this.longueur/2,this.hauteur-1);
+	    Dimension dimensionVaisseau = new Dimension(Constante.VAISSEAU_LONGUEUR, Constante.VAISSEAU_HAUTEUR);
+	    positionnerUnNouveauVaisseau(dimensionVaisseau, positionVaisseau);
+    }
 }
