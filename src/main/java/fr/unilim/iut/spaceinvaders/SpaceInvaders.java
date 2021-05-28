@@ -47,7 +47,7 @@ public class SpaceInvaders implements Jeu{
 		return vaisseau!=null;
 	}
 	
-public void positionnerUnNouveauVaisseau(Dimension dimension, Position position) {
+public void positionnerUnNouveauVaisseau(Dimension dimension, Position position, int vitesse) {
 		
 		int x = position.abscisse();
 		int y = position.ordonnee();
@@ -63,8 +63,7 @@ public void positionnerUnNouveauVaisseau(Dimension dimension, Position position)
 		if (!estDansEspaceJeu(x, y - hauteurVaisseau + 1))
 			throw new DebordementEspaceJeuException("Le vaisseau déborde de l'espace jeu vers le bas à cause de sa hauteur");
 
-		vaisseau = new Vaisseau(longueurVaisseau, hauteurVaisseau);
-		vaisseau.positionner(x, y);
+		vaisseau = new Vaisseau(dimension, position, vitesse);
 	}
 
 	private boolean estDansEspaceJeu(int x, int y) {
@@ -74,11 +73,17 @@ public void positionnerUnNouveauVaisseau(Dimension dimension, Position position)
 	public void deplacerVaisseauVersLaDroite() {
 		if (vaisseau.abscisseLaPlusADroite()< (longueur-1)) 
 			vaisseau.seDeplacerVersLaDroite();
+		if (!estDansEspaceJeu(vaisseau.abscisseLaPlusADroite(), vaisseau.ordonneeLaPlusHaute())) {
+			vaisseau.positionner(longueur - vaisseau.longueur(), vaisseau.ordonneeLaPlusHaute());
+		}
 	}
 
 	public void deplacerVaisseauVersLaGauche() {
 		if (vaisseau.abscisseLaPlusAGauche() > 0)
 			vaisseau.seDeplacerVersLaGauche();
+		if (!estDansEspaceJeu(vaisseau.abscisseLaPlusAGauche(), vaisseau.ordonneeLaPlusHaute())) {
+			vaisseau.positionner(0, vaisseau.ordonneeLaPlusHaute());
+		}
 	}
 
 	@Override
@@ -100,6 +105,6 @@ public void positionnerUnNouveauVaisseau(Dimension dimension, Position position)
 	public void initialiserJeu() {
 	    Position positionVaisseau = new Position(this.longueur/2,this.hauteur-1);
 	    Dimension dimensionVaisseau = new Dimension(Constante.VAISSEAU_LONGUEUR, Constante.VAISSEAU_HAUTEUR);
-	    positionnerUnNouveauVaisseau(dimensionVaisseau, positionVaisseau);
+	    positionnerUnNouveauVaisseau(dimensionVaisseau, positionVaisseau, Constante.VAISSEAU_VITESSE);
     }
 }
